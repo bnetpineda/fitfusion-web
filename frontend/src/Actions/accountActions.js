@@ -31,7 +31,7 @@ import {
 } from "../Constants/accountConstants";
 import axios from "axios";
 
-
+const API_BASE_URL = 'https://backendfitfussion-production.up.railway.app';
 
 export const addAccount = (account) => async (dispatch) => {
   try {
@@ -39,7 +39,10 @@ export const addAccount = (account) => async (dispatch) => {
       type: ACCOUNT_ADD_REQUEST,
     });
 
-    const { data } = await axios.post("http://127.0.0.1:8000/auth/register/", account); //create a new product
+    const { data } = await axios.post(
+      `${API_BASE_URL}/auth/register/`,
+      account
+    );
 
     dispatch({
       type: ACCOUNT_ADD_SUCCESS,
@@ -69,7 +72,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://127.0.0.1:8000/auth/login/",
+      `${API_BASE_URL}/auth/login/`,
       { email: email, password: password },
       config
     );
@@ -113,7 +116,11 @@ export const updateAccount = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put("http://127.0.0.1:8000/auth/updateuser/", user, config); //create a new product
+    const { data } = await axios.put(
+      "http://127.0.0.1:8000/auth/updateuser/",
+      user,
+      config
+    ); //create a new product
 
     dispatch({
       type: ACCOUNT_UPDATE_SUCCESS,
@@ -216,7 +223,11 @@ export const paymentUserSuccess = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put("http://127.0.0.1:8000/auth/updatepayment/", user, config); //create a new product
+    const { data } = await axios.put(
+      "http://127.0.0.1:8000/auth/updatepayment/",
+      user,
+      config
+    ); //create a new product
 
     dispatch({
       type: USER_PAYMENT_SUCCESS,
@@ -262,7 +273,11 @@ export const cancelSubscriptionUser = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put("http://127.0.0.1:8000/auth/cancelsubscription/", user, config); //create a new product
+    const { data } = await axios.put(
+      "http://127.0.0.1:8000/auth/cancelsubscription/",
+      user,
+      config
+    ); //create a new product
 
     dispatch({
       type: CANCEL_SUBSCRIPTION_SUCCESS,
@@ -363,7 +378,10 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.access}`,
       },
     };
-    const { data } = await axios.get(`http://127.0.0.1:8000/auth/${id}/`, config);
+    const { data } = await axios.get(
+      `http://127.0.0.1:8000/auth/${id}/`,
+      config
+    );
     dispatch({
       type: USER_DETAILS_SUCCESS,
       payload: data,
@@ -396,7 +414,10 @@ export const listUsers = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get("http://127.0.0.1:8000/auth/userlist", config); //fetch the products from rest api
+    const { data } = await axios.get(
+      "http://127.0.0.1:8000/auth/userlist",
+      config
+    ); //fetch the products from rest api
 
     dispatch({
       type: USER_LIST_SUCCESS,
