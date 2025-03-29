@@ -27,7 +27,7 @@ function GenreProductsScreen() {
 
   useEffect(() => {
     async function fetchGenreProducts() {
-      const { data } = await axios.get(`http://127.0.0.1:8000/api/genreproducts/${id}`);
+      const { data } = await axios.get(`https://backendfitfussion-production.up.railway.app/api/genreproducts/${id}`);
       setGenreProducts(data);
     }
     fetchGenreProducts();
