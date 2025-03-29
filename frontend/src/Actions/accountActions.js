@@ -173,7 +173,7 @@ export const updateSubscriptionId =
       };
 
       const { data } = await axios.put(
-        "${API_BASE_URL}/auth/subscriptionId/",
+        `${API_BASE_URL}/auth/subscriptionId/`,
         updatedUser,
         config
       ); //create a new product
