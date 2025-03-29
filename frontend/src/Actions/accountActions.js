@@ -117,7 +117,7 @@ export const updateAccount = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      "http://127.0.0.1:8000/auth/updateuser/",
+      "${API_BASE_URL}/auth/updateuser/",
       user,
       config
     ); //create a new product
@@ -173,7 +173,7 @@ export const updateSubscriptionId =
       };
 
       const { data } = await axios.put(
-        "http://127.0.0.1:8000/auth/subscriptionId/",
+        "${API_BASE_URL}/auth/subscriptionId/",
         updatedUser,
         config
       ); //create a new product
@@ -224,7 +224,7 @@ export const paymentUserSuccess = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      "http://127.0.0.1:8000/auth/updatepayment/",
+      "${API_BASE_URL}/auth/updatepayment/",
       user,
       config
     ); //create a new product
@@ -274,7 +274,7 @@ export const cancelSubscriptionUser = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      "http://127.0.0.1:8000/auth/cancelsubscription/",
+      "${API_BASE_URL}/auth/cancelsubscription/",
       user,
       config
     ); //create a new product
@@ -324,7 +324,7 @@ export const cancelSubscription = (id, user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `http://127.0.0.1:8000/auth/cancelsubscription/${id}`,
+      `${API_BASE_URL}/auth/cancelsubscription/${id}`,
       user,
       config
     ); //create a new product
@@ -379,7 +379,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.get(
-      `http://127.0.0.1:8000/auth/${id}/`,
+      `${API_BASE_URL}/auth/${id}/`,
       config
     );
     dispatch({
@@ -415,7 +415,7 @@ export const listUsers = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      "http://127.0.0.1:8000/auth/userlist",
+      "${API_BASE_URL}/auth/userlist",
       config
     ); //fetch the products from rest api
 
@@ -452,7 +452,7 @@ export const updateUserInfo = (id, user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `http://127.0.0.1:8000/auth/updateuserinfo/${id}`,
+      `${API_BASE_URL}/auth/updateuserinfo/${id}`,
       user,
       config
     ); //create a new product
@@ -491,7 +491,7 @@ export const addToMyList =
       };
 
       const { data } = await axios.post(
-        `http://127.0.0.1:8000/auth/api/users/${userId}/add-to-my-list/`,
+        `${API_BASE_URL}/auth/api/users/${userId}/add-to-my-list/`,
         { productId },
         config
       );
@@ -542,7 +542,7 @@ export const removeToMyList =
       };
 
       const { data } = await axios.post(
-        `http://127.0.0.1:8000/auth/api/users/${userId}/remove-to-my-list/`,
+        `${API_BASE_URL}/auth/api/users/${userId}/remove-to-my-list/`,
         { productId },
         config
       );
